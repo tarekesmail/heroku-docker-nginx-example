@@ -1,5 +1,8 @@
 FROM nginx:1.21.6
 
+RUN apt update -y
+RUN apt install postgresql-contrib postgresql-client -y
+
 COPY default.conf.template /etc/nginx/conf.d/default.conf.template
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY static-html /usr/share/nginx/html
